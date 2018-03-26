@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weight converter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <style>
+        .con{
+            width:50%;
+            margin:auto;
+        }
+        body{
+            margin-top:100px;
+            color:#fff;
+            background: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <h1>Weight converter..</h1>
+        <br>
+        <form class="form-group">
+            <div>
+                <input type="number" id="winput" class="form-control" placeholder="Enter weight in kilograms ...">
+            </div>
+        </form>
+        <div id="output"></div>
+    </div>
+    <script src="app.js"></script> 
+    <script>
+        converter();
+        function converter() {
+            var w = document.getElementById('winput');
+            w.addEventListener("input",function(e){
+                e.preventDefault();
+                var inval = w.value;
+                var p = inval*(2.0462);
+                var o = inval*(35.274);
+                var g = inval*(1000);
+                if(p>=0 && o>=0 && g>=0){
+                document.getElementById('output').innerHTML = `
+                    <div class="card text-white bg-primary ">
+                        <div class="card-header">
+                            <h4>Pounds</h4>
+                            <p class="card-text">`+p+`</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card text-white bg-success ">
+                        <div class="card-header">
+                            <h4>Ounces</h4>
+                            <p class="card-text">`+ o +`</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card text-white bg-danger ">
+                        <div class="card-header">
+                            <h4>Grams</h4>
+                            <p class="card-text">`+ g +`</p>
+                        </div>
+                    </div>
+                `;}
+            });
+        }
+    </script>   
+</body>
+</html>
